@@ -1,8 +1,6 @@
 // O ScrollToPlugin.min.js precisa ser carregado no HTML para este código funcionar
-// (já incluído no HTML acima).
 
 // --- ANIMAÇÕES GSAP (INTERATIVIDADE) ---
-// Anima a entrada dos elementos do HERO usando Timeline
 const tl = gsap.timeline({ defaults: { opacity: 0, ease: "power3.out" } });
 
 tl.from(".hero-logo-intro", {
@@ -12,7 +10,7 @@ tl.from(".hero-logo-intro", {
 .from(".hero-title", {
     y: 50, 
     duration: 1
-}, "-=0.6") // Começa 0.6s antes do fim da animação anterior
+}, "-=0.6") 
 .from(".hero-description", {
     y: 30,
     duration: 1
@@ -33,19 +31,18 @@ tl.from(".hero-logo-intro", {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Smooth scroll com offset para o cabeçalho fixo
+    // 1. Smooth scroll com offset para o cabeçalho fixo (80px)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             
-            // Verifica se não é um link para o WhatsApp (que já tem target="_blank")
             if (targetId && targetId !== '#') {
                 gsap.to(window, {
                     duration: 1,
                     scrollTo: {
                         y: targetId,
-                        offsetY: 80 // Offset do cabeçalho
+                        offsetY: 80 
                     },
                     ease: "power2.inOut"
                 });
@@ -81,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            // Remove o '#' do href para comparação
             if (link.getAttribute('href').substring(1) === current) {
                 link.classList.add('active');
             }
@@ -89,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     window.addEventListener('scroll', updateActiveLink);
-    updateActiveLink(); // Executa na carga para iniciar na seção correta
+    updateActiveLink(); 
 
 
     // --- VIDEO AUTOPLAY FALLBACK ---

@@ -77,7 +77,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* CORRIGIDO: Alinhamento horizontal correto */
     padding: 16px 0;
 }
 
@@ -123,7 +122,6 @@ html {
     cursor: pointer;
     align-items: center;
     border-radius: 8px;
-    /* CORRIGIDO: Usar 'transition' ao invés de 'transform' */
     transition: all 0.3s ease;
 }
 
